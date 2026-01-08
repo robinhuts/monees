@@ -4,7 +4,8 @@ export const fetchTransactions = async () => {
     const { data, error } = await supabase
         .from('transactions')
         .select('*')
-        .order('date', { ascending: false });
+        .order('date', { ascending: false })
+        .order('created_at', { ascending: false });
 
     if (error) {
         console.error('Supabase fetch error:', error);
